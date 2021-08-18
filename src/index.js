@@ -1,6 +1,6 @@
 const express = require('express');
-require('./db/database');
-const urlRouter = require('./routers/url');
+require('./database/connection');
+const urlRouter = require('./database/routers/url');
 
 const app = express();
 const port = process.env.PORT;
