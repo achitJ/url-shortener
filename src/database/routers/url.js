@@ -6,7 +6,7 @@ const crypto = require('crypto');
 
 router.post('/api/url', async (req,  res) => {
 
-    const longURL = req.body.url;
+    let longURL = req.body.url;
 
     if(!longURL)
     {
@@ -19,6 +19,11 @@ router.post('/api/url', async (req,  res) => {
     }
 
     try {
+
+        if(!longURL.match(/^(https|http):\/\//))
+        {
+            longURL = "http://" + longURL;
+        }
 
         const doesURLExists = await URL.findOne({longURL : longURL});
 

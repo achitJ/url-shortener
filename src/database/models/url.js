@@ -24,6 +24,17 @@ const urlSchema = new mongoose.Schema({
 
 });
 
+urlSchema.methods.toJSON = function() {
+
+    const url = this;
+    const urlObject = url.toObject();
+
+    delete urlObject._id;
+
+    return urlObject;
+
+}
+
 const URL = mongoose.model('URL', urlSchema);
 
 module.exports = URL;
