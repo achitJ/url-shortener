@@ -47,7 +47,7 @@ urlForm.addEventListener('submit', (event) => {
 
 		if(data.error)
 		{
-			shortUrlTxt.textContent = "ERROR: " + data.error;
+			return shortUrlTxt.textContent = "ERROR: " + data.error;
 		}
 
 		currUrl += data.shortURL;
